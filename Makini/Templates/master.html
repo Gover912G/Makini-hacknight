@@ -74,12 +74,12 @@
             <!-- <li class="nav-item {% if nav == 'index' %}active{% endif %}">
               <a href="{% url 'website:index' %}" class="nav-link">Home</a>
             </li> -->
-            <li><a class="active" href="{% url 'website:index' %}">Home</a></li>
-            <li><a href="{% url 'website:about' %}">About</a></li>
-            <li><a href="{% url 'website:courses' %}">Courses</a></li>
-            <li><a href="{% url 'website:trainers' %}">Trainers</a></li>
-            <li><a href="{% url 'website:event' %}">Events</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
+            <li><a class="{% if nav == 'index' %}active{% endif %}" href="{% url 'website:index' %}">Home</a></li>
+            <li><a class="{% if nav == 'about' %}active{% endif %}"  href="{% url 'website:about' %}">About</a></li>
+            <li><a class="{% if nav == 'courses' %}active{% endif %}"  href="{% url 'website:courses' %}">Courses</a></li>
+            <li><a class="{% if nav == 'trainers' %}active{% endif %}"  href="{% url 'website:trainers' %}">Trainers</a></li>
+            <li><a class="{% if nav == 'index' %}events{% endif %}"  href="{% url 'website:event' %}">Events</a></li>
+            <li><a class="{% if nav == 'pricing' %}active{% endif %}"  href="{% url 'website:pricing' %}">Pricing</a></li>
 
             <li class="dropdown">
               <a href="#"
@@ -105,7 +105,7 @@
                 <li><a href="#">Drop Down 4</a></li>
               </ul>
             </li>
-            <li><a href="{% url 'website:contact' %}">Contact</a></li>
+            <li><a class="{% if nav == 'contact' %}active{% endif %}"  href="{% url 'website:contact' %}">Contact</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
