@@ -13,13 +13,15 @@ def Home(request):
 def about(request):
     return render(request, 'about.html', {'nav':'about'})
 
+
+
 def contact(request):
     if request.method == "POST":
-        message_name = request.POST['message-name']
-        message_email = request.POST['message-email']
+        message_name =  request.POST['name']
+        message_email = request.POST['email']
         message = request.POST['message']
 
-        # send an email
+        # Send an email 
 
         send_mail(
             message_name,# subject
@@ -28,13 +30,36 @@ def contact(request):
             ['ngigipaul912@gmail.com'], # To email
         )
 
-        contact = {
+        context = {
             'nav':'contact',
             'message_name':message_name
         }
         return render(request, 'contact.html', context)
     else:
-        return render(request, 'contact.html', {'nav':'contact'})
+        return render(request,'contact.html',{})
+
+# def contact(request):
+#     if request.method == "POST":
+#         message_name = request.POST['subject']
+#         message_email = request.POST['email']
+#         message = request.POST['message']
+
+#         # send an email
+
+#         send_mail(
+#             message_name,# subject
+#             message, # message
+#             message_email, #email
+#             ['ngigipaul912@gmail.com'], # To email
+#         )
+
+#         contact = {
+#             'nav':'contact',
+#             'message_name':message_name
+#         }
+#         return render(request, 'contact.html', context)
+#     else:
+#         return render(request, 'contact.html', {'nav':'contact'})
 
 
 def event(request):
